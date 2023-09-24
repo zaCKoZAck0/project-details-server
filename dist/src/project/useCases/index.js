@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.filterProjectsController = exports.uploadProjectsController = exports.createUserController = void 0;
+const GetAllProjectsController_1 = require("./getAllProjects/GetAllProjectsController");
+const UploadProjectsController_1 = require("./uploadProjects/UploadProjectsController");
+const FilterProjectsController_1 = require("./filterProjects/FilterProjectsController");
+const ProjectsRepo_1 = require("../repos/ProjectsRepo");
+const prisma_1 = require("../../infra/prisma");
+const userRepo = new ProjectsRepo_1.ProjectRepo(prisma_1.prisma);
+const createUserController = new GetAllProjectsController_1.GetAllProjectsController(userRepo);
+exports.createUserController = createUserController;
+const uploadProjectsController = new UploadProjectsController_1.UploadProjectsController(userRepo);
+exports.uploadProjectsController = uploadProjectsController;
+const filterProjectsController = new FilterProjectsController_1.FilterProjectsController(userRepo);
+exports.filterProjectsController = filterProjectsController;
