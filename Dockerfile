@@ -1,5 +1,6 @@
 FROM node:slim
 WORKDIR /docker/shl_asg/app
+RUN apt-get install -y openssl
 COPY package.json /docker/shl_asg/app
 RUN npm i
 COPY . /docker/shl_asg/app
